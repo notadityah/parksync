@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter basename="/parksync">
+    <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
