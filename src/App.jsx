@@ -8,7 +8,6 @@ import { getMetricsOnce } from "./services/api";
 import "./App.css";
 
 function App() {
-  // Dev-only smoke test: triggers the API call once and logs
   useEffect(() => {
     if (import.meta.env.DEV) {
       getMetricsOnce()
@@ -18,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/parksync">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
