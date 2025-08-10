@@ -16,8 +16,9 @@ function App() {
         .catch((err) => console.error("[App] Metrics error", err));
     }
   }, []);
+
   return (
-    <BrowserRouter basename="/parksync">
+    <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
