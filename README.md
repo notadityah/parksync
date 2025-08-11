@@ -61,6 +61,6 @@ The application is configured for deployment with:
 
 ## 📊 Data Sources
 
-- **Melbourne City Council**: On-street parking bay sensors
+- **Melbourne City**: On-street parking bay sensors
 - **Population Data**: Australian Bureau of Statistics
-- **Vehicle Registration**: VicRoads data
+- **Vehicle Census**: Australian Bureau of Statistics
