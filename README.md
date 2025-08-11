@@ -28,7 +28,7 @@ A web application designed to help car-dependent commuters find parking in Melbo
 - **UI Framework**: React Bootstrap
 - **Routing**: React Router DOM
 - **Styling**: Custom CSS with Bootstrap integration
-- **Data Source**: Melbourne City Council parking sensor API, MySQL database hosted on AWS
+- **Database**: MySQL database hosted on AWS
 - **Build Tool**: Vite
 - **Linting**: ESLint
 
@@ -50,8 +50,6 @@ src/
 │   └── api.js          # Data fetching and caching
 └── assets/            # Images and static resources
 ```
-
-## 🚀 Getting Started
 
 ## 🌐 Deployment
 
