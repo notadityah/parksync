@@ -1,3 +1,6 @@
+/**
+ * API service - Handles data fetching from external API with caching and error handling
+ */
 const BASE_URL = import.meta.env.VITE_API_GATEWAY_URL;
 
 // In-memory cache to avoid duplicate network calls
@@ -102,5 +105,3 @@ export function getMetricsOnce() {
   }
   return metricsPromise;
 }
-
-export default { fetchMetrics };

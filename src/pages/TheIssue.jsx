@@ -1,7 +1,12 @@
+/**
+ * TheIssue page - Displays parking problem statistics and population/vehicle growth data
+ */
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import NarrativeCard from "../components/NarrativeCard";
 import { getMetricsOnce } from "../services/api";
+import peopleImage from "../assets/people.png";
+import carsImage from "../assets/cars.jpg";
 
 const TheIssue = () => {
   const [metrics, setMetrics] = useState(null);
@@ -28,7 +33,7 @@ const TheIssue = () => {
     <div className="py-5 pt-5">
       <Container>
         <div className="text-center mb-5">
-          <p className="lead text-muted mx-auto" style={{ maxWidth: "800px" }}>
+          <p className="lead text-light mx-auto" style={{ maxWidth: "800px" }}>
             Since COVID, Melbourne has seen a sharp rise in car dependency—more
             so than many comparable global cities. One of the biggest
             contributors to congestion in the CBD is the time drivers spend
@@ -41,7 +46,7 @@ const TheIssue = () => {
 
         <Row className="justify-content-center mb-5">
           <NarrativeCard
-            imagePlaceholder="👥"
+            imagePlaceholder={peopleImage}
             narrative={
               <>
                 Melbourne's population grew from{" "}
@@ -61,7 +66,7 @@ const TheIssue = () => {
             }
           />
           <NarrativeCard
-            imagePlaceholder="🚗"
+            imagePlaceholder={carsImage}
             narrative={
               <>
                 Car ownership in Victoria has grown even faster, from{" "}
@@ -83,7 +88,7 @@ const TheIssue = () => {
         </Row>
 
         <div className="text-center mb-5">
-          <h3 className="text-muted mx-auto" style={{ maxWidth: "800px" }}>
+          <h3 className="text-light mx-auto" style={{ maxWidth: "800px" }}>
             Melbourne's <span className="fw-bold">23,864</span> on-street
             parking bays can't keep up with the city's growing population and
             rising car ownership.

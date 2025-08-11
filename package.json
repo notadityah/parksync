@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://www.tp11parksync.com",
+  "homepage": "https://tp11parksync-udycv.ondigitalocean.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
