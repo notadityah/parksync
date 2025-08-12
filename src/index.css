@@ -10,12 +10,47 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
     url("./assets/flinders.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+
+.nav-btn {
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 18px;
+  margin-left: 10px;
+  padding: 6px 18px !important;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1rem;
+}
+
+.nav-btn-home {
+  background: var(--bs-success);
+}
+.nav-btn-home:hover {
+  background: #388e3c;
+  color: #fff !important;
+}
+
+.nav-btn-issue {
+  background: #e53935;
+}
+.nav-btn-issue:hover {
+  background: #b71c1c;
+  color: #fff !important;
+}
+
+.nav-btn-parking {
+  background: #039be5;
+}
+.nav-btn-parking:hover {
+  background: #0277bd;
+  color: #fff !important;
 }
 
 .navbar-brand {
@@ -45,4 +80,156 @@ footer.bg-light {
   background-color: rgba(255, 255, 255, 0.55) !important;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(4px);
+}
+
+/* Glassmorphism Card Style */
+.card {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Issue page layout tweaks */
+.issue-page .lead {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.issue-page .narrative-card {
+  margin-bottom: 20px;
+}
+
+.issue-page h3 {
+  font-weight: 600;
+}
+
+/* Buttons hover animation */
+.btn {
+  transition: all 0.25s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* Footer transparency */
+footer.bg-light {
+  background: rgba(248, 249, 250, 0.25) !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Hero section */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  max-width: 700px;
+}
+
+.hero-btn {
+  min-width: 250px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+/* FindParking page tweaks */
+.find-parking-page .card {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+.find-parking-page .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Navbar animation */
+.navbar {
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Navbar link animation */
+.navbar .nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Footer animation */
+footer {
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+footer:hover {
+  background-color: rgba(248, 249, 250, 0.45) !important;
+  backdrop-filter: blur(12px);
+}
+
+.narrative-card {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.narrative-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
 }

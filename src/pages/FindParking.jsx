@@ -8,69 +8,47 @@ import parkingSpotsImage from "../assets/parkingspots.png";
 
 const FindParking = () => {
   return (
-    <div className="pt-5">
+    <div className="page-wrapper section fade-in find-parking-page">
       <Container>
         <div className="text-center mb-3">
-          <p
-            className="lead text-light"
-            style={{ fontSize: "2rem", maxWidth: "1000px", margin: "0 auto" }}
-          >
-            Looking for parking? Use the search bar in the map below to find
-            your spot. Real-time sensor data is updated every 3 minutes, so you
-            can always find the latest information.
+          <p className="lead text-light mx-auto" style={{ maxWidth: "1000px" }}>
+            Looking for parking? Use the search bar in the map below to find your spot.
+            Real-time sensor data is updated every 3 minutes, so you can always find the latest information.
           </p>
         </div>
       </Container>
+
       <MapSection />
 
       <Container className="py-5">
         <div className="text-center mb-5">
           <h2 className="text-light mb-3">
-            What does the historical data say? Our data analysts reveal there
-            are some things to look out for:
+            What does the historical data say? Our data analysts reveal there are some things to look out for:
           </h2>
         </div>
 
-        <Row className="justify-content-center">
-          <Col lg={6} className="mb-4">
-            <Card className="border-0 shadow-sm h-100">
-              <Card.Body className="p-4">
-                <div className="text-center mb-3">
-                  <img
-                    src={visualsImage}
-                    alt="Parking Occupancy Over Time"
-                    style={{
-                      width: "100%",
-                      height: "330px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                    }}
-                  />
+        <Row className="justify-content-center g-4">
+          <Col lg={6} md={6}>
+            <Card className="glass-card h-100">
+              <Card.Body>
+                <div className="text-center mb-3 find-parking-img">
+                  <img src={visualsImage} alt="Parking Occupancy Over Time" />
                 </div>
                 <h5 className="text-light mb-3">Peak Times to Avoid</h5>
                 <p className="text-light">
-                  This graph shows the occupied parking places based on time
-                  (24hrs). Most parking spots are occupied during the day,
-                  especially from 10am-1pm. Choose your arrival time wisely!
+                  This graph shows the occupied parking places based on time (24hrs).
+                  Most parking spots are occupied during the day, especially from 10am-1pm.
+                  Choose your arrival time wisely!
                 </p>
               </Card.Body>
             </Card>
           </Col>
 
-          <Col lg={6} className="mb-4">
-            <Card className="border-0 shadow-sm h-100">
-              <Card.Body className="p-4">
+          <Col lg={6} md={6}>
+            <Card className="glass-card h-100">
+              <Card.Body>
                 <div className="text-center mb-3">
-                  <img
-                    src={parkingSpotsImage}
-                    alt="Parking Vacancy Rate Map"
-                    style={{
-                      width: "100%",
-                      height: "330px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                    }}
-                  />
+                  <img src={parkingSpotsImage} alt="Parking Vacancy Rate Map" />
                 </div>
                 <h5 className="text-light mb-3">Areas to Avoid</h5>
                 <p className="text-light">
@@ -88,3 +66,4 @@ const FindParking = () => {
 };
 
 export default FindParking;
+
