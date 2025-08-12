@@ -4,37 +4,238 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  
+  /* 添加CSS变量 */
+  --primary-color: #3b82f6;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #06b6d4;
+  --light-color: #f8fafc;
+  --dark-color: #1e293b;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #f8f9fa;
-}
-
+/* 改进的导航栏样式 */
 .navbar-brand {
   font-weight: 700;
   font-size: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.btn-custom {
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.25s ease;
+.navbar-brand:hover {
+  transform: scale(1.05);
 }
 
+/* 现代化的英雄区域 */
 .hero-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+/* 改进的卡片悬停效果 */
 .card-hover {
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 统计卡片特殊样式 */
+.stats-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 16px 16px 0 0;
+}
+
+.stats-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 图标容器样式 */
+.icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  transition: all 0.3s ease;
+}
+
+.icon-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--info-color));
+}
+
+.icon-success {
+  background: linear-gradient(135deg, var(--success-color), #34d399);
+}
+
+.icon-warning {
+  background: linear-gradient(135deg, var(--warning-color), #fbbf24);
+}
+
+.icon-danger {
+  background: linear-gradient(135deg, var(--danger-color), #f87171);
+}
+
+.stats-card:hover .icon-container {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* 图表容器样式 */
+.chart-container {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.chart-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.chart-placeholder {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.chart-placeholder:hover {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-color: var(--primary-color);
+}
+
+/* 地图容器样式 */
+.map-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.map-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* 页脚样式 */
+footer {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  margin-top: auto;
+}
+
+/* 按钮改进 */
+.btn-modern {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+/* 响应式改进 */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 50vh;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .stats-card {
+    margin-bottom: 1rem;
+  }
+  
+  .chart-container {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* 脉冲动画用于图标 */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
 }
