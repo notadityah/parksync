@@ -1,30 +1,58 @@
+import { useEffect, useState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/parklogo.png";
 
-
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <Navbar bg="white" variant="light" expand="lg" className="border-bottom custom-navbar">
+    <Navbar
+      expand="lg"
+      fixed="top"
+      bg="white"
+      variant="light"
+      className={`border-bottom custom-navbar ${scrolled ? "scrolled" : ""}`}
+    >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="fw-bold d-flex align-items-center">
+        <Navbar.Brand as={NavLink} to="/" className="fw-bold d-flex align-items-center">
           <img
             src={logo}
             alt="ParkSync Logo"
-            style={{ height: "50px", width: "50px", marginRight: "10px", borderRadius: "8px" }}
+            style={{ height: 36, width: 36, marginRight: 10, borderRadius: 8 }}
           />
           ParkSync
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+
+        <Navbar.Toggle aria-controls="main-nav" />
+        <Navbar.Collapse id="main-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/" className="nav-btn btn-success nav-btn-home">
+            <Nav.Link
+              as={NavLink}
+              to="/"
+              end
+              className="nav-btn nav-btn-home"
+            >
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/the-issue" className="nav-btn nav-btn-issue">
+            <Nav.Link
+              as={NavLink}
+              to="/the-issue"
+              className="nav-btn nav-btn-issue"
+            >
               The Issue
             </Nav.Link>
-            <Nav.Link as={Link} to="/find-parking" className="nav-btn nav-btn-parking">
+            <Nav.Link
+              as={NavLink}
+              to="/find-parking"
+              className="nav-btn nav-btn-parking"
+            >
               Find Parking
             </Nav.Link>
           </Nav>

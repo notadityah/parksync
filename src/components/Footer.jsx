@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-light py-4 border-top">
       <Container>
         <div className="text-center">
-          <p className="text-light mb-0">Developed by Chai Boba Tea-m 2025</p>
+          <p className="text-dark mb-0">Developed by Chai Boba Tea-m 2025</p>
         </div>
       </Container>
     </footer>

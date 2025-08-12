@@ -1,6 +1,3 @@
-/**
- * FindParking page - Interactive parking finder with real-time map and historical data insights
- */
 import MapSection from "../components/MapSection";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import visualsImage from "../assets/visual.jpeg";
@@ -31,13 +28,13 @@ const FindParking = () => {
           <Col lg={6} md={6}>
             <Card className="glass-card h-100">
               <Card.Body>
-                <div className="text-center mb-3 find-parking-img">
+                <div className="text-center mb-3">
                   <img src={visualsImage} alt="Parking Occupancy Over Time" />
                 </div>
                 <h5 className="text-light mb-3">Peak Times to Avoid</h5>
                 <p className="text-light">
                   This graph shows the occupied parking places based on time (24hrs).
-                  Most parking spots are occupied during the day, especially from 10am-1pm.
+                  Most parking spots are occupied during the day, especially from 10am–1pm.
                   Choose your arrival time wisely!
                 </p>
               </Card.Body>
@@ -66,4 +63,3 @@ const FindParking = () => {
 };
 
 export default FindParking;
-

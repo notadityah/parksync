@@ -16,16 +16,10 @@ const Home = () => {
             traffic, long search times, and rising fuel costs just to park their car.
           </p>
           <div className="mt-5 d-flex justify-content-center gap-4 flex-wrap">
-            <Link
-              to="/the-issue"
-              className="btn btn-danger text-light btn-lg glass-card"
-            >
+            <Link to="/the-issue" className="big-button red">
               Understand the Parking Problem
             </Link>
-            <Link
-              to="/find-parking"
-              className="btn btn-success text-light btn-lg glass-card"
-            >
+            <Link to="/find-parking" className="big-button green">
               Find Parking in Melbourne CBD
             </Link>
           </div>

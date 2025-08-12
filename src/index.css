@@ -1,5 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+/* ====== 全局样式 ====== */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,72 +19,77 @@ body {
   background-attachment: fixed;
 }
 
-
-.nav-btn {
-  color: #fff !important;
-  font-weight: 600;
-  border-radius: 18px;
-  margin-left: 10px;
-  padding: 6px 18px !important;
-  transition: background 0.2s, color 0.2s;
-  font-size: 1rem;
+/* ====== 页面容器 ====== */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.nav-btn-home {
-  background: var(--bs-success);
-}
-.nav-btn-home:hover {
-  background: #388e3c;
-  color: #fff !important;
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
-.nav-btn-issue {
-  background: #e53935;
-}
-.nav-btn-issue:hover {
-  background: #b71c1c;
-  color: #fff !important;
+/* ====== 按钮 ====== */
+.btn {
+  border-radius: 12px !important;
+  transition: all 0.25s ease-in-out;
 }
 
-.nav-btn-parking {
-  background: #039be5;
-}
-.nav-btn-parking:hover {
-  background: #0277bd;
-  color: #fff !important;
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.navbar-brand {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.btn-custom {
+/* ======== 顶部导航按钮样式 ======== */
+.nav-links a {
+  padding: 8px 16px;
   border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
-.navbar {
-  background-color: rgba(255, 255, 255, 0.35) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(4px);
+.nav-links a.active {
+  background-color: rgba(0, 123, 255, 0.2); /* 蓝色半透明背景 */
+  color: #000;
 }
 
-footer.bg-light {
-  background-color: rgba(248, 249, 250, 0.35) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(4px);
+.nav-links a:hover {
+  background-color: rgba(0, 123, 255, 0.4);
 }
 
-.card {
-  background-color: rgba(255, 255, 255, 0.55) !important;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(4px);
+/* ======== 首页两个大按钮样式 ======== */
+.big-button {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  text-decoration: none; 
+  transition: all 0.3s ease;
 }
 
-/* Glassmorphism Card Style */
-.card {
+.big-button.red {
+  background-color: rgba(255, 77, 77, 0.8); 
+}
+
+.big-button.green {
+  background-color: rgba(40, 167, 69, 0.8); 
+}
+
+.big-button:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* ====== 玻璃拟态卡片 ====== */
+.card,
+.glass-card,
+.narrative-card {
   background: rgba(255, 255, 255, 0.15) !important;
   border-radius: 16px !important;
   -webkit-backdrop-filter: blur(12px);
@@ -92,43 +98,29 @@ footer.bg-light {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card:hover {
+.card:hover,
+.glass-card:hover,
+.narrative-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* Issue page layout tweaks */
-.issue-page .lead {
-  font-size: 1.3rem;
-  line-height: 1.6;
+/* NarrativeCard 图片比例固定 */
+.narrative-card img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.issue-page .narrative-card {
-  margin-bottom: 20px;
+/* FindParking 卡片图片固定高度 */
+.find-parking-page .card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.issue-page h3 {
-  font-weight: 600;
-}
-
-/* Buttons hover animation */
-.btn {
-  transition: all 0.25s ease-in-out;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-}
-
-/* Footer transparency */
-footer.bg-light {
-  background: rgba(248, 249, 250, 0.25) !important;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-
-/* Hero section */
+/* ====== Hero Section ====== */
 .hero-section {
   min-height: 80vh;
   display: flex;
@@ -144,45 +136,18 @@ footer.bg-light {
   max-width: 700px;
 }
 
-.hero-btn {
-  min-width: 250px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.hero-btn:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.05);
-}
-
-/* FindParking page tweaks */
-.find-parking-page .card {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-radius: 16px !important;
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
-}
-
-.find-parking-page .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
-}
-
-/* Mobile tweaks */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-}
-
-/* Navbar animation */
+/* ====== 导航栏 ====== */
 .navbar {
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.35) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+  padding: 15px 0;
+}
+
+.navbar.scrolled {
+  padding: 5px 0;
+  background-color: rgba(255, 255, 255, 0.55) !important;
 }
 
 .navbar:hover {
@@ -190,9 +155,9 @@ footer.bg-light {
   backdrop-filter: blur(8px);
 }
 
-/* Navbar link animation */
 .navbar .nav-link {
   position: relative;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
@@ -211,8 +176,11 @@ footer.bg-light {
   width: 100%;
 }
 
-/* Footer animation */
+/* ====== Footer ====== */
 footer {
+  background: rgba(248, 249, 250, 0.25) !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
@@ -221,15 +189,29 @@ footer:hover {
   backdrop-filter: blur(12px);
 }
 
-.narrative-card {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-radius: 16px !important;
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+/* ====== 滚动渐入动画 ====== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.narrative-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
+
+/* ====== 移动端优化 ====== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+.fade-in { opacity: 1; transform: none; } 
