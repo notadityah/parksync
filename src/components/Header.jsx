@@ -1,10 +1,17 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
+import logo from "../assets/logo.svg";
+
 
 const Header = () => {
   return (
-    <Navbar bg="white" variant="light" expand="lg" className="border-bottom">
+    <Navbar className="custom-navbar border-bottom" variant="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home" className="fw-bold">
+        <Navbar.Brand href="#home" className="fw-bold d-flex align-items-center">
+          <img
+            src={logo}
+            alt="ParkSync Logo"
+            style={{ height: "50px", marginRight: "20px" }}
+          />
           ParkSync
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

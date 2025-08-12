@@ -1,0 +1,8 @@
+<!-- filepath: src/assets/logo.svg -->
+<svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="12" fill="#DFF5E3"/>
+  <path d="M12 52L24 36L40 44L52 28" stroke="#217A4B" stroke-width="3" fill="none"/>
+  <path d="M32 38C25 28 18 24 32 12C46 24 39 28 32 38Z" fill="#217A4B"/>
+  <circle cx="32" cy="22" r="7" fill="#DFF5E3"/>
+  <text x="32" y="26" text-anchor="middle" fill="#217A4B" font-size="10" font-family="Arial" font-weight="bold">P</text>
+</svg>
