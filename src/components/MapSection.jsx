@@ -14,10 +14,10 @@ const MapSection = () => {
                 <iframe
                   src="https://data.melbourne.vic.gov.au/explore/embed/dataset/on-street-parking-bay-sensors/custom/?&static=false&datasetcard=true"
                   width="100%"
-                  height="600"
+                  height="650"
                   frameBorder="0"
                   style={{
-                    maxWidth: "1300px",
+                    maxWidth: "1650px",
                     border: "none",
                     borderRadius: "8px",
                   }}

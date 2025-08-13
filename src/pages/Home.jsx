@@ -17,7 +17,7 @@ const Home = () => {
           </p>
           <div className="mt-5 d-flex justify-content-center gap-4 flex-wrap">
             <Link to="/the-issue" className="big-button red">
-              Understand the Parking Problem
+              What You Should Know
             </Link>
             <Link to="/find-parking" className="big-button green">
               Find Parking in Melbourne CBD

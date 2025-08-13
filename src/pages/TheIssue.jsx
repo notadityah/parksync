@@ -1,12 +1,14 @@
 /**
  * TheIssue page - Displays parking problem statistics and population/vehicle growth data
  */
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import NarrativeCard from "../components/NarrativeCard";
 import { getMetricsOnce } from "../services/api";
 import peopleImage from "../assets/people.png";
 import carsImage from "../assets/cars.jpg";
+import visualsImage from "../assets/visual.jpeg";
+import parkingSpotsImage from "../assets/parkingspots.png";
 
 const TheIssue = () => {
   const [metrics, setMetrics] = useState(null);
@@ -86,6 +88,49 @@ const TheIssue = () => {
             can't keep up with the city's growing population and rising car ownership.
           </h3>
         </div>
+
+      </Container>
+
+      <Container>
+        <div className="text-center mb-5" style={{ maxWidth: "1200px", paddingTop: "40px" }}>
+          <h2 className="text-light mb-3">
+            What does the historical data say? Our data analysts reveal there are some things to look out for:
+          </h2>
+        </div>
+
+        <Row className="justify-content-center g-4">
+          <Col lg={6} md={6}>
+            <Card className="glass-card h-100">
+              <Card.Body>
+                <div className="text-center mb-3">
+                  <img src={visualsImage} alt="Parking Occupancy Over Time" style={{ maxWidth: "100%", height: "auto" }} />
+                </div>
+                <h5 className="text-light mb-3">Peak Times to Avoid</h5>
+                <p className="text-light">
+                  This graph shows the occupied parking places based on time (24hrs).
+                  Most parking spots are occupied during the day, especially from 10am–1pm.
+                  Choose your arrival time wisely!
+                </p>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col lg={6} md={6}>
+            <Card className="glass-card h-100">
+              <Card.Body>
+                <div className="text-center mb-3">
+                  <img src={parkingSpotsImage} alt="Parking Vacancy Rate Map" style={{ maxWidth: "100%", height: "auto" }}/>
+                </div>
+                <h5 className="text-light mb-3">Areas to Avoid</h5>
+                <p className="text-light">
+                  Darker colors indicate higher vacancy rates (easier parking),
+                  while lighter colors indicate tighter parking availability.
+                  Choose areas with easier parking options before traveling!
+                </p>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Container>
     </div>
   );

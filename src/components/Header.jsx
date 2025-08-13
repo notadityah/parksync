@@ -46,7 +46,7 @@ const Header = () => {
               to="/the-issue"
               className="nav-btn nav-btn-issue"
             >
-              The Issue
+              What You Should Know
             </Nav.Link>
             <Nav.Link
               as={NavLink}
