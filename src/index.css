@@ -1,5 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+/* ====== 全局样式 ====== */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,7 +11,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.67)),
     url("./assets/flinders.jpg");
   background-size: cover;
   background-position: center;
@@ -18,31 +19,199 @@ body {
   background-attachment: fixed;
 }
 
-.navbar-brand {
-  font-weight: 700;
-  font-size: 1.5rem;
+/* ====== 页面容器 ====== */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.btn-custom {
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* ====== 按钮 ====== */
+.btn {
+  border-radius: 12px !important;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ======== 顶部导航按钮样式 ======== */
+.nav-links a {
+  padding: 8px 16px;
   border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
+.nav-links a.active {
+  background-color: rgba(0, 123, 255, 0.2); /* 蓝色半透明背景 */
+  color: #000;
+}
+
+.nav-links a:hover {
+  background-color: rgba(0, 123, 255, 0.4);
+}
+
+/* ======== 两个大按钮 ======== */
+.big-button {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  text-decoration: none; 
+  transition: all 0.3s ease;
+}
+
+.big-button.red {
+  background-color: rgba(255, 77, 77, 0.8); 
+}
+
+.big-button.green {
+  background-color: rgba(40, 167, 69, 0.8); 
+}
+
+.big-button:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* ====== 玻璃拟态卡片 ====== */
+.card,
+.glass-card,
+.narrative-card {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.glass-card:hover,
+.narrative-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* NarrativeCard 图片比例固定 */
+.narrative-card img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* FindParking 卡片图片固定高度 */
+.find-parking-page .card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ====== Hero Section ====== */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  max-width: 700px;
+}
+
+/* ====== 导航栏 ====== */
 .navbar {
   background-color: rgba(255, 255, 255, 0.35) !important;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+  padding: 15px 0;
 }
 
-footer.bg-light {
-  background-color: rgba(248, 249, 250, 0.35) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(4px);
-}
-
-.card {
+.navbar.scrolled {
+  padding: 5px 0;
   background-color: rgba(255, 255, 255, 0.55) !important;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(4px);
 }
+
+.navbar:hover {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(8px);
+}
+
+.navbar .nav-link {
+  position: relative;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* ====== Footer ====== */
+footer {
+  background: rgba(248, 249, 250, 0.25) !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+footer:hover {
+  background-color: rgba(248, 249, 250, 0.45) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* ====== 滚动渐入动画 ====== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== 移动端优化 ====== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+.fade-in { opacity: 1; transform: none; } 

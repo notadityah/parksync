@@ -1,26 +1,58 @@
-/**
- * Header component - Main navigation bar with brand logo and navigation links
- */
+import { useEffect, useState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import logo from "../assets/parklogo.png";
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <Navbar bg="white" variant="light" expand="lg" className="border-bottom">
+    <Navbar
+      expand="lg"
+      fixed="top"
+      bg="white"
+      variant="light"
+      className={`border-bottom custom-navbar ${scrolled ? "scrolled" : ""}`}
+    >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="text-light fw-bold">
+        <Navbar.Brand as={NavLink} to="/" className="fw-bold d-flex align-items-center">
+          <img
+            src={logo}
+            alt="ParkSync Logo"
+            style={{ height: 45, width: 45, marginRight: 10, borderRadius: 8 }}
+          />
           ParkSync
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+
+        <Navbar.Toggle aria-controls="main-nav" />
+        <Navbar.Collapse id="main-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/" className="text-light">
+            <Nav.Link
+              as={NavLink}
+              to="/"
+              end
+              className="nav-btn nav-btn-home"
+            >
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/the-issue" className="text-light">
-              The Issue
+            <Nav.Link
+              as={NavLink}
+              to="/the-issue"
+              className="nav-btn nav-btn-issue"
+            >
+              What You Should Know
             </Nav.Link>
-            <Nav.Link as={Link} to="/find-parking" className="text-light">
+            <Nav.Link
+              as={NavLink}
+              to="/find-parking"
+              className="nav-btn nav-btn-parking"
+            >
               Find Parking
             </Nav.Link>
           </Nav>

@@ -1,12 +1,14 @@
 /**
  * TheIssue page - Displays parking problem statistics and population/vehicle growth data
  */
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import NarrativeCard from "../components/NarrativeCard";
 import { getMetricsOnce } from "../services/api";
 import peopleImage from "../assets/people.png";
 import carsImage from "../assets/cars.jpg";
+import visualsImage from "../assets/visual.jpeg";
+import parkingSpotsImage from "../assets/parkingspots.png";
 
 const TheIssue = () => {
   const [metrics, setMetrics] = useState(null);
@@ -25,75 +27,110 @@ const TheIssue = () => {
       });
   }, []);
 
-  if (loading) return <div className="text-center py-5">Loading...</div>;
-  if (error)
-    return <div className="text-center py-5 text-danger">Error: {error}</div>;
+  if (loading) return <div className="text-center py-5 text-light">Loading...</div>;
+  if (error) return <div className="text-center py-5 text-danger">Error: {error}</div>;
 
   return (
-    <div className="py-5 pt-5">
+    <div className="page-wrapper section fade-in issue-page">
       <Container>
-        <div className="text-center mb-5">
-          <p className="lead text-light mx-auto" style={{ maxWidth: "800px" }}>
+        <div className="text-left mb-5" style={{ paddingTop: "65px" }}>
+          <p className="lead text-light mx-auto" style={{ maxWidth: "1200px" }}>
             Since COVID, Melbourne has seen a sharp rise in car dependency—more
-            so than many comparable global cities. One of the biggest
-            contributors to congestion in the CBD is the time drivers spend
-            circling the streets in search of a parking spot. With high car
-            ownership rates, this search is far from easy: on average, drivers
-            lose up to <span className="fw-bold">17 hours</span> each year just
-            trying to find a place to park.
+            so than many comparable global cities. One of the biggest contributors
+            to congestion in the CBD is the time drivers spend circling the streets
+            in search of a parking spot. With high car ownership rates, this search
+            is far from easy: on average, drivers lose up to{" "}
+            <span className="fw-bold">17 hours</span> each year just trying to find a place to park.
           </p>
         </div>
 
-        <Row className="justify-content-center mb-5">
-          <NarrativeCard
-            imagePlaceholder={peopleImage}
-            narrative={
-              <>
-                Melbourne's population grew from{" "}
-                <span className="fw-bold">
-                  {metrics?.population_2016?.toLocaleString()}
-                </span>{" "}
-                in 2016 to{" "}
-                <span className="fw-bold">
-                  {metrics?.population_2021?.toLocaleString()}
-                </span>{" "}
-                in 2021. A{" "}
-                <span className="fw-bold">
-                  {metrics?.population_pct_increase_2016_2021}% increase
-                </span>{" "}
-                over 5 years.
-              </>
-            }
-          />
-          <NarrativeCard
-            imagePlaceholder={carsImage}
-            narrative={
-              <>
-                Car ownership in Victoria has grown even faster, from{" "}
-                <span className="fw-bold">
-                  {metrics?.passenger_vehicles_2016?.toLocaleString()}
-                </span>{" "}
-                vehicles in 2016 to{" "}
-                <span className="fw-bold">
-                  {metrics?.passenger_vehicles_2021?.toLocaleString()}
-                </span>{" "}
-                in 2021. A{" "}
-                <span className="fw-bold">
-                  {metrics?.passenger_vehicles_pct_increase_2016_2021}% increase
-                </span>{" "}
-                over 5 years.
-              </>
-            }
-          />
+        <Row className="justify-content-center g-4">
+          <Col lg={6} md={6}>
+            <NarrativeCard
+              imagePlaceholder={peopleImage}
+              narrative={
+                <>
+                  Melbourne's population grew from{" "}
+                  <span className="fw-bold">{metrics?.population_2016?.toLocaleString()}</span>{" "}
+                  in 2016 to{" "}
+                  <span className="fw-bold">{metrics?.population_2021?.toLocaleString()}</span>{" "}
+                  in 2021. A{" "}
+                  <span className="fw-bold">{metrics?.population_pct_increase_2016_2021}%</span>{" "}
+                  increase over 5 years.
+                </>
+              }
+              className="glass-card"
+            />
+          </Col>
+
+          <Col lg={6} md={6}>
+            <NarrativeCard
+              imagePlaceholder={carsImage}
+              narrative={
+                <>
+                  Car ownership in Victoria has grown even faster, from{" "}
+                  <span className="fw-bold">{metrics?.passenger_vehicles_2016?.toLocaleString()}</span>{" "}
+                  vehicles in 2016 to{" "}
+                  <span className="fw-bold">{metrics?.passenger_vehicles_2021?.toLocaleString()}</span>{" "}
+                  in 2021. A{" "}
+                  <span className="fw-bold">{metrics?.passenger_vehicles_pct_increase_2016_2021}%</span>{" "}
+                  increase over 5 years.
+                </>
+              }
+              className="glass-card"
+            />
+          </Col>
         </Row>
 
-        <div className="text-center mb-5">
+        <div className="text-center mt-5">
           <h3 className="text-light mx-auto" style={{ maxWidth: "800px" }}>
-            Melbourne's <span className="fw-bold">23,864</span> on-street
-            parking bays can't keep up with the city's growing population and
-            rising car ownership.
+            Melbourne's <span className="fw-bold">23,864</span> on-street parking bays
+            can't keep up with the city's growing population and rising car ownership.
           </h3>
         </div>
+
+      </Container>
+
+      <Container>
+        <div className="text-center mb-5" style={{ maxWidth: "1200px", paddingTop: "40px" }}>
+          <h2 className="text-light mb-3">
+            What does the historical data say? Our data analysts reveal there are some things to look out for:
+          </h2>
+        </div>
+
+        <Row className="justify-content-center g-4">
+          <Col lg={6} md={6}>
+            <Card className="glass-card h-100">
+              <Card.Body>
+                <div className="text-center mb-3">
+                  <img src={visualsImage} alt="Parking Occupancy Over Time" style={{ maxWidth: "100%", height: "auto" }} />
+                </div>
+                <h5 className="text-light mb-3">Peak Times to Avoid</h5>
+                <p className="text-light">
+                  This graph shows the occupied parking places based on time (24hrs).
+                  Most parking spots are occupied during the day, especially from 10am–1pm.
+                  Choose your arrival time wisely!
+                </p>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col lg={6} md={6}>
+            <Card className="glass-card h-100">
+              <Card.Body>
+                <div className="text-center mb-3">
+                  <img src={parkingSpotsImage} alt="Parking Vacancy Rate Map" style={{ maxWidth: "100%", height: "auto" }}/>
+                </div>
+                <h5 className="text-light mb-3">Areas to Avoid</h5>
+                <p className="text-light">
+                  Darker colors indicate higher vacancy rates (easier parking),
+                  while lighter colors indicate tighter parking availability.
+                  Choose areas with easier parking options before traveling!
+                </p>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
