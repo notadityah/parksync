@@ -31,8 +31,8 @@ const TheIssue = () => {
   return (
     <div className="page-wrapper section fade-in issue-page">
       <Container>
-        <div className="text-center mb-5">
-          <p className="lead text-light mx-auto" style={{ maxWidth: "800px" }}>
+        <div className="text-left mb-5" style={{ paddingTop: "65px" }}>
+          <p className="lead text-light mx-auto" style={{ maxWidth: "1200px" }}>
             Since COVID, Melbourne has seen a sharp rise in car dependency—more
             so than many comparable global cities. One of the biggest contributors
             to congestion in the CBD is the time drivers spend circling the streets

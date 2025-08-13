@@ -25,7 +25,7 @@ const Header = () => {
           <img
             src={logo}
             alt="ParkSync Logo"
-            style={{ height: 36, width: 36, marginRight: 10, borderRadius: 8 }}
+            style={{ height: 45, width: 45, marginRight: 10, borderRadius: 8 }}
           />
           ParkSync
         </Navbar.Brand>

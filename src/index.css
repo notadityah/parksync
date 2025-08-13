@@ -59,7 +59,7 @@ body {
   background-color: rgba(0, 123, 255, 0.4);
 }
 
-/* ======== 首页两个大按钮样式 ======== */
+/* ======== 两个大按钮 ======== */
 .big-button {
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.5); 
